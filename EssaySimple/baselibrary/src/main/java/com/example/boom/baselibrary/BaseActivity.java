@@ -26,27 +26,32 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
     }
 
-    public abstract void  setContentView();
-    public abstract void  initTitle();
-    public abstract void  initView();
-    public abstract void  initData();
+    public abstract void setContentView();
+
+    public abstract void initTitle();
+
+    public abstract void initView();
+
+    public abstract void initData();
 
     /**
      * 复写startActivity
+     *
      * @param clazz
      */
-    protected void startActivity(Class<?> clazz){
-        Intent intent = new Intent(this,clazz);
+    protected void startActivity(Class<?> clazz) {
+        Intent intent = new Intent(this, clazz);
         startActivity(intent);
     }
 
     /**
      * 用泛型简化findviewByid
+     *
      * @param viewId
      * @param <T>
      * @return
      */
-    protected <T extends View> T viewById(int viewId){
+    protected <T extends View> T viewById(int viewId) {
         return (T) findViewById(viewId);
     }
 

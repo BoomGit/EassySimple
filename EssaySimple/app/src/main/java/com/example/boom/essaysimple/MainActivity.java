@@ -2,14 +2,18 @@ package com.example.boom.essaysimple;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.boom.baselibrary.BaseApp;
 import com.example.boom.baselibrary.ExceptionCrashHandler;
 import com.example.boom.framelibrary.BaseSkinActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MainActivity extends BaseSkinActivity {
@@ -54,6 +58,16 @@ public class MainActivity extends BaseSkinActivity {
         //每次启动的时候  去后台获取差分包  fix.apatch 然后修复本地BUG
 
         //测试  直接获取本地内存卡里面的 fix.apatch
+        File fixFile = new File(Environment.getExternalStorageDirectory(), "fix.aptach");
+        if (fixFile.exists()) {
+            //修复Bug
+            try {
+                BaseApp.patchManager.addPatch(fixFile.getAbsolutePath());
+                Toast.makeText(this, "修复成功", Toast.LENGTH_SHORT).show();
+            } catch (IOException e) {
+                Toast.makeText(this, "修复失败", Toast.LENGTH_SHORT).show();
+            }
+        }
 
 
     }
