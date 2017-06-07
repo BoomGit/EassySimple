@@ -1,5 +1,6 @@
 package com.example.boom.essaysimple;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -36,6 +37,10 @@ public class MainActivity extends BaseSkinActivity {
 
     @Override
     public void initData() {
+        //启动服务
+        startService(new Intent(this,MessgaeService.class));
+        startService(new Intent(this,GuardService.class));
+
         //初始化数据
         //获取上次的奔溃信息上传到服务器
         File crashFile = ExceptionCrashHandler.getMyInstance().getCrashFile();
