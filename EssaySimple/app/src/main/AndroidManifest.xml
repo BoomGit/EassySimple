@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.boom.essaysimple" >
-
+    //JobService权限
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,9 +17,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--两个service 作为双进程守护 app-->
         <service android:name=".MessgaeService"/>
         <!--android:process=":guardService"  意思就是把他放到另外一个线程里面-->
         <service android:name=".GuardService" android:process=":guardService"/>
+
+        <!--轮询service-->
+        <service android:name=".JobWakeUpService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
 </manifest>

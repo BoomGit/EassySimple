@@ -2,6 +2,7 @@ package com.example.boom.essaysimple;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -40,6 +41,10 @@ public class MainActivity extends BaseSkinActivity {
         //启动服务
         startService(new Intent(this,MessgaeService.class));
         startService(new Intent(this,GuardService.class));
+        //必须大于5.0  ，不然会崩掉
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            startService(new Intent(this,JobWakeUpService.class));
+        }
 
         //初始化数据
         //获取上次的奔溃信息上传到服务器
