@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.boom.baselibrary.BaseApp;
 import com.example.boom.baselibrary.ExceptionCrashHandler;
+import com.example.boom.essaysimple.ipc.MyService;
 import com.example.boom.framelibrary.BaseSkinActivity;
 
 import java.io.File;
@@ -38,14 +39,7 @@ public class MainActivity extends BaseSkinActivity {
 
     @Override
     public void initData() {
-        //启动服务
-        startService(new Intent(this,MessgaeService.class));
-        startService(new Intent(this,GuardService.class));
-        //必须大于5.0  ，不然会崩掉
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            startService(new Intent(this,JobWakeUpService.class));
-        }
-
+        /**/
         //初始化数据
         //获取上次的奔溃信息上传到服务器
         File crashFile = ExceptionCrashHandler.getMyInstance().getCrashFile();

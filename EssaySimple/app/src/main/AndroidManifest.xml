@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.boom.essaysimple" >
-    //JobService权限
+    <!--JobService权限-->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name="com.example.boom.baselibrary.BaseApp"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:name="com.example.boom.baselibrary.BaseApp" >
         <activity android:name=".MainActivity" >
+
+        </activity>
+        <activity android:name=".SecondActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ThirdActivity">
+
         </activity>
         <!--两个service 作为双进程守护 app-->
         <service android:name=".MessgaeService"/>
@@ -26,6 +32,15 @@
         <service android:name=".JobWakeUpService"
             android:enabled="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <!--服务端-->
+        <service android:name=".ipc.MyService">
+        <!--隐式调用(给应用端调用)-->
+            <intent-filter>
+                <action android:name="com.boom.aidl.user"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

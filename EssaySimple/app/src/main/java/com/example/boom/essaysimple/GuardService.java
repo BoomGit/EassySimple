@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.boom.aidl.ProcessConnection;
@@ -28,7 +27,6 @@ public class GuardService extends Service {
         return START_STICKY;
     }
 
-    @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return new ProcessConnection.Stub(){};
