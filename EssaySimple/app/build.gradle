@@ -23,4 +23,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(path: ':framelibrary')
     compile 'com.android.support:appcompat-v7:24.2.1'
+    compile files('libs/okhttp-2.7.5.jar')
+    compile files('libs/okio-1.13.0.jar')
+
 }

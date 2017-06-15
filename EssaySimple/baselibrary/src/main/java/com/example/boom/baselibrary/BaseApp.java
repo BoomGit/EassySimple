@@ -32,6 +32,7 @@ public class BaseApp extends Application {
         //patchManager.init("1.0");
         //加载之前的apatch包
         patchManager.loadPatch();
+
     }
 
 }

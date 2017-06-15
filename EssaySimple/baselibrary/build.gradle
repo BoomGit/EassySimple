@@ -22,4 +22,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.alipay.euler:andfix:0.5.0@aar'
+    compile 'org.xutils:xutils:3.3.36'
+    compile 'com.solidfire.code.gson:gson-parent:2.6.2'
+    compile 'com.google.code.gson:gson:2.8.1'
 }
